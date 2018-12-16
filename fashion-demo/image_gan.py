@@ -6,8 +6,19 @@ from tensorflow import keras
 
 
 class Image_GAN:
-
+    #
+    # A simple GAN implementation for generating images.
+    #
     def __init__(self, real_images, input_size=50, checkpoint_dir=None):
+        #
+        # Constructor.
+        #
+        # Parameters:
+        #
+        # real_images: The training dataset
+        # input_size: The size of the random vector
+        # checkpoint_dir: directory to save the discriminator and generator every 10 training epochs
+        #
         self.real_images = real_images
         self.input_size = input_size
         self.input_population = real_images.shape[0]
@@ -107,7 +118,7 @@ class Image_GAN:
                 self.save_discriminator(filename)
 
     def save_generator(self, filename):
-        self.generator.save(filename)
+        self.generator.save_weights(filename)
 
     def load_generator(self, path):
         self.generator.load_weights(path)

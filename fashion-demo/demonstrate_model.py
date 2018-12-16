@@ -1,15 +1,7 @@
 
-import numpy as np
 from tensorflow import keras
-import tensorflow as tf
-import sys
-import pylab
-from matplotlib import pyplot as plt
-
-from helper_functions import plot_image
 
 import sys
-import os
 
 from helper_functions import draw_demo_images
 from image_gan import Image_GAN
