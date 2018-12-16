@@ -1,9 +1,12 @@
-# TensorFlow and tf.keras
 
+import numpy as np
 from tensorflow import keras
+import tensorflow as tf
+import sys
+import pylab
+from matplotlib import pyplot as plt
 
-# Helper libraries
-import matplotlib.pyplot as plt
+from helper_functions import plot_image
 
 import sys
 import os
@@ -19,13 +22,6 @@ training_data = test_images.astype('float32') / 255.0
 
 gan = Image_GAN(training_data, checkpoint_dir='./checkpoints')
 
-
-if sys.argv[1] and os.path.exists(sys.argv[1]):
-    gan.load_generator(sys.argv[1])
-
-gan.train(300)
-
-if sys.argv[2]:
-    gan.save_generator(sys.argv[2])
+gan.load_generator(sys.argv[1])
 
 draw_demo_images(gan)
